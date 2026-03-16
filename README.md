@@ -1,14 +1,17 @@
 <div align="center">
 
-# 🤖 n8n AI Lead Generator
+# 🤖 n8n Google AI Lead Generator — v1.0
 
-**An AI-powered, fully automated lead generation and outreach system built on n8n.**  
+**An AI-powered, fully automated Google Maps lead generation and outreach system built on n8n.**  
 Control everything from Telegram. Speak or type — the AI does the rest.
+
+> 🗺️ **v1.0 — Google Maps Edition** | Sources future versions: v2.0 (LinkedIn), v3.0 (multi-source)
 
 ![n8n](https://img.shields.io/badge/Built%20with-n8n-orange?style=flat-square)
 ![OpenAI](https://img.shields.io/badge/AI-OpenAI%20GPT-blue?style=flat-square)
 ![Google Sheets](https://img.shields.io/badge/Database-Google%20Sheets-green?style=flat-square)
 ![Telegram](https://img.shields.io/badge/Interface-Telegram-2CA5E0?style=flat-square)
+![Version](https://img.shields.io/badge/Version-v1.0-brightgreen?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
 
 </div>
@@ -17,7 +20,9 @@ Control everything from Telegram. Speak or type — the AI does the rest.
 
 ## 🧠 What Is This?
 
-This is a production-ready, end-to-end **AI lead generation system** built entirely in [n8n](https://n8n.io).
+This is **v1.0** of a production-ready, end-to-end **AI lead generation system** built entirely in [n8n](https://n8n.io/).
+
+This version uses **Google Maps** as the primary lead source — the AI scrapes businesses by niche and city, enriches them, and sends automated outreach.
 
 You send a command to a Telegram bot — via text or **voice message** — and the system:
 
@@ -31,6 +36,16 @@ You send a command to a Telegram bot — via text or **voice message** — and t
 8. Sends cold outreach via Gmail
 
 All orchestrated by a central **AI Agent** with memory, tools, and multi-step reasoning.
+
+---
+
+## 🗺️ Version Roadmap
+
+| Version | Source | Status |
+|---|---|---|
+| **v1.0 — Google Maps** | Google Maps scraping | ✅ Current release |
+| v2.0 — LinkedIn | LinkedIn lead enrichment | 🔜 In development |
+| v3.0 — Multi-Source | Combined sources + scoring | 🔜 Planned |
 
 ---
 
@@ -54,28 +69,28 @@ All orchestrated by a central **AI Agent** with memory, tools, and multi-step re
 ```
 User (Telegram: text or voice)
         ↓
-[ IL ] GOOGLE LEAD GENERATOR   ← Main Orchestrator
+[ IL ] GOOGLE LEAD GENERATOR  ← Main Orchestrator (v1.0)
         ↓
-    AI Agent (GPT-4o-mini + Memory)
+  AI Agent (GPT-4o-mini + Memory)
         ↓
 ┌───────────────────────────────────────────────────┐
-│  Available Tools:                                  │
-│                                                    │
-│  AgentLeadAddQuery          → Generate queries     │
-│  AgentLeadAddSiteCompany    → Scrape Google Maps   │
-│  AgentLeadScrapInformation  → Extract company info │
-│  AgentLeadMailGenerate      → Generate HTML emails │
-│  AgentCheckMail             → Validate emails      │
-│  AgentSendMail              → Send via Gmail       │
-│  QuerySheets                → Read query sheet     │
-│  SiteCompanySheets          → Read company sheet   │
-│  TelegramMessage            → Send status updates  │
-│  Think                      → Internal reasoning   │
+│  Available Tools:                                 │
+│                                                   │
+│  AgentLeadAddQuery       → Generate queries       │
+│  AgentLeadAddSiteCompany → Scrape Google Maps     │
+│  AgentLeadScrapInformation → Extract company info │
+│  AgentLeadMailGenerate   → Generate HTML emails   │
+│  AgentCheckMail          → Validate emails        │
+│  AgentSendMail           → Send via Gmail         │
+│  QuerySheets             → Read query sheet       │
+│  SiteCompanySheets       → Read company sheet     │
+│  TelegramMessage         → Send status updates    │
+│  Think                   → Internal reasoning     │
 └───────────────────────────────────────────────────┘
         ↓
-Google Sheets (Lead Database)
+  Google Sheets (Lead Database)
         ↓
-Gmail (Outreach)
+    Gmail (Outreach)
 ```
 
 ---
@@ -240,5 +255,9 @@ MIT — free to use, modify, and distribute.
 ---
 
 <div align="center">
-Built with ❤️ using n8n + OpenAI + Google Sheets
+
+Built with ❤️ using n8n + OpenAI + Google Maps + Google Sheets
+
+**v1.0 — Google Maps Edition**
+
 </div>
