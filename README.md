@@ -5,7 +5,7 @@
 **An AI-powered, fully automated Google Maps lead generation and outreach system built on n8n.**  
 Control everything from Telegram. Speak or type — the AI does the rest.
 
-> 🗺️ **v1.0 — Google Maps Edition** | Sources future versions: v2.0 (LinkedIn), v3.0 (multi-source)
+> 🗺️ **v1.0 — Google Maps Edition** | Released: Summer 2025 | Future: v2.0 (Smart Bot + PostgreSQL), v3.0 (SaaS)
 
 ![n8n](https://img.shields.io/badge/Built%20with-n8n-orange?style=flat-square)
 ![OpenAI](https://img.shields.io/badge/AI-OpenAI%20GPT-blue?style=flat-square)
@@ -20,7 +20,7 @@ Control everything from Telegram. Speak or type — the AI does the rest.
 
 ## 🧠 What Is This?
 
-This is **v1.0** of a production-ready, end-to-end **AI lead generation system** built entirely in [n8n](https://n8n.io/).
+This is **v1.0** of a production-ready, end-to-end **AI lead generation system** built entirely in [n8n](https://n8n.io/). First released in **Summer 2025**.
 
 This version uses **Google Maps** as the primary lead source — the AI scrapes businesses by niche and city, enriches them, and sends automated outreach.
 
@@ -41,11 +41,13 @@ All orchestrated by a central **AI Agent** with memory, tools, and multi-step re
 
 ## 🗺️ Version Roadmap
 
-| Version | Source | Status |
-|---|---|---|
-| **v1.0 — Google Maps** | Google Maps scraping | ✅ Current release |
-| v2.0 — LinkedIn | LinkedIn lead enrichment | 🔜 In development |
-| v3.0 — Multi-Source | Combined sources + scoring | 🔜 Planned |
+| Version | Name | Lead Source | Key Upgrades | Status |
+|---|---|---|---|---|
+| **v1.0** | Google Maps Basic | Google Maps | n8n + GPT-4 + Google Sheets + Telegram | ✅ Released (Summer 2025) |
+| v2.0 | Google Maps Pro | Google Maps | PostgreSQL + pgvector, smart AI chatbot with semantic memory & analysis | 🔜 In development |
+| v3.0 | Google Maps SaaS | Google Maps | Full SaaS product, multi-tenant, dashboard, subscription billing | 🔜 Planned |
+
+> All versions are built around **Google Maps** as the core lead discovery source.
 
 ---
 
@@ -258,6 +260,8 @@ MIT — free to use, modify, and distribute.
 
 Built with ❤️ using n8n + OpenAI + Google Maps + Google Sheets
 
-**v1.0 — Google Maps Edition**
+**v1.0 — Google Maps Edition — Summer 2025**
+
+[github.com/neshortil/n8n-google-lead-generator](https://github.com/neshortil/n8n-google-lead-generator)
 
 </div>
