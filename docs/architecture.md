@@ -1,18 +1,27 @@
-# Architecture Overview
+# Architecture Overview — v1.0 (Google Maps Edition)
+
+> This document describes the architecture of **v1.0** of the n8n Google AI Lead Generator.  
+> v1.0 uses **Google Maps** as the primary lead discovery source.
+
+---
 
 ## System Design
 
-The n8n AI Lead Generator follows a **hub-and-spoke architecture** where one central AI Agent orchestrator dispatches work to specialized sub-agent workflows.
+The n8n Google AI Lead Generator v1.0 follows a **hub-and-spoke architecture** where one central AI Agent orchestrator dispatches work to specialized sub-agent workflows.
+
+All lead discovery in v1.0 is powered by **Google Maps scraping** — businesses are found by niche and city, then enriched and contacted automatically.
+
+---
 
 ## High-Level Flow
 
 ```
 User Input (Telegram)
-       |
-       v
+        |
+        v
 +---------------------------+
 |  [IL] GOOGLE LEAD         |
-|  GENERATOR                |
+|  GENERATOR  (v1.0)        |
 |  (Main Orchestrator)      |
 |                           |
 |  - Telegram Trigger       |
@@ -20,21 +29,23 @@ User Input (Telegram)
 |  - AI Agent (GPT-4o-mini) |
 |  - Simple Memory (10 turns)|
 +---------------------------+
-       |
-       v (tool calls)
+        |
+        v (tool calls)
 +------+------+------+------+------+------+
 |      |      |      |      |      |      |
 v      v      v      v      v      v      v
-Query  Site   Scrap  Mail   Check  Send   Utils
-Gen    Scrape Info   Gen    Mail   Mail   (Sheets,
-                                         Telegram,
-                                         Think)
+Query  Site  Scrap  Mail  Check  Send  Utils
+Gen   Scrape  Info  Gen   Mail   Mail  (Sheets,
+                                       Telegram,
+                                       Think)
 ```
+
+---
 
 ## Component Breakdown
 
 ### 1. Main Orchestrator
-**Workflow:** `[IL] GOOGLE LEAD GENERATOR`
+**Workflow:** `[IL] GOOGLE LEAD GENERATOR` *(v1.0 entry point)*
 
 - Entry point for all user commands
 - Handles both text and voice input
@@ -45,7 +56,7 @@ Gen    Scrape Info   Gen    Mail   Mail   (Sheets,
 **Workflow:** `[IL] AgentLeadAddQuery`
 
 - Calls OpenAI GPT-4-turbo directly via HTTP Request
-- Generates 50 search queries per batch
+- Generates 50 Google Maps search queries per batch
 - Deduplicates against existing queries in Google Sheets
 - Outputs to: Google Sheets (Queries tab)
 
@@ -53,7 +64,7 @@ Gen    Scrape Info   Gen    Mail   Mail   (Sheets,
 **Workflow:** `[IL] AgentLeadAddSiteCompany`
 
 - Reads queries from Google Sheets
-- Scrapes Google Maps for matching businesses
+- Scrapes **Google Maps** for matching businesses *(core of v1.0)*
 - Collects: name, address, phone, website
 - Outputs to: Google Sheets (SiteCompany tab)
 
@@ -88,12 +99,14 @@ Gen    Scrape Info   Gen    Mail   Mail   (Sheets,
 - Sends via Gmail OAuth2
 - Updates send status in Leads sheet
 
+---
+
 ## Data Flow
 
 ```
 Google Sheets Structure:
 
-Sheet 1: Query Database
+Sheet 1: Query & Company Database
 +------------------+
 | Queries tab      |
 | - query          |
@@ -118,6 +131,8 @@ Sheet 2: Leads Database
 +------------------+
 ```
 
+---
+
 ## Technology Stack
 
 | Layer | Technology |
@@ -126,10 +141,12 @@ Sheet 2: Leads Database
 | LLM | OpenAI GPT-4o-mini / GPT-4-turbo |
 | Voice Transcription | OpenAI Whisper |
 | Control Interface | Telegram Bot API |
+| Lead Discovery (v1.0) | **Google Maps Scraping** |
 | Lead Storage | Google Sheets API |
 | Email Delivery | Gmail OAuth2 |
 | Email Templates | Brevo HTML |
-| Business Discovery | Google Maps Scraping |
+
+---
 
 ## Credential Requirements
 
@@ -140,10 +157,22 @@ Sheet 2: Leads Database
 | Google Sheets | OAuth2 | spreadsheets |
 | Gmail | OAuth2 | gmail.send |
 
+---
+
 ## Scalability Notes
 
 - Each sub-workflow runs independently and can be triggered manually for testing
-- Google Sheets acts as a simple CRM — can be replaced with Airtable or a real DB for scale
+- Google Sheets acts as a simple CRM in v1.0 — can be replaced with Airtable or a real DB for scale
 - The AI Agent memory window (10 turns) is configurable in the Simple Memory node
 - Gmail daily limits (500 free / 2000 Workspace) cap outreach volume per day
 - Add rate limiting `Wait` nodes for large batch operations
+
+---
+
+## Version Notes
+
+| Version | Lead Source | Architecture Changes |
+|---|---|---|
+| **v1.0 (current)** | Google Maps | Hub-and-spoke, 7 workflows, Google Sheets CRM |
+| v2.0 (planned) | LinkedIn | New scraper agents, additional enrichment |
+| v3.0 (planned) | Multi-source | Lead scoring, source merging, expanded CRM |
