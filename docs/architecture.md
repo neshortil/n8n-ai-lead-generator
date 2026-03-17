@@ -1,4 +1,4 @@
-# Architecture Overview — v1.0 (Google Maps Edition)
+# Architecture Overview - v1.0 (Google Maps Edition)
 
 > This document describes the architecture of **v1.0** of the n8n Google AI Lead Generator.  
 > v1.0 uses **Google Maps** as the primary lead discovery source.
@@ -9,7 +9,7 @@
 
 The n8n Google AI Lead Generator v1.0 follows a **hub-and-spoke architecture** where one central AI Agent orchestrator dispatches work to specialized sub-agent workflows.
 
-All lead discovery in v1.0 is powered by **Google Maps scraping** — businesses are found by niche and city, then enriched and contacted automatically.
+All lead discovery in v1.0 is powered by **Google Maps scraping** - businesses are found by niche and city, then enriched and contacted automatically.
 
 ---
 
@@ -174,5 +174,9 @@ Sheet 2: Leads Database
 | Version | Lead Source | Architecture Changes |
 |---|---|---|
 | **v1.0 (current)** | Google Maps | Hub-and-spoke, 7 workflows, Google Sheets CRM |
-| v2.0 (planned) | LinkedIn | New scraper agents, additional enrichment |
-| v3.0 (planned) | Multi-source | Lead scoring, source merging, expanded CRM |
+| v2.0 (in development) | Google Maps | PostgreSQL + pgvector, smart AI chatbot with semantic memory & analysis |
+| v3.0 (planned) | Google Maps | Full SaaS product, multi-tenant, dashboard, subscription billing |
+
+---
+
+> 🗺️ **v1.0 — Google Maps Edition** | Released: Summer 2025 | Future: v2.0 (Smart Bot + PostgreSQL), v3.0 (SaaS)
