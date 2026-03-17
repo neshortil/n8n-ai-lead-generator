@@ -1,6 +1,6 @@
 # Setup Guide & Common Pitfalls - v1.0 (Google Maps Edition)
 
-> This guide covers the setup of **v1.0** of the n8n Google AI Lead Generator.  
+> This guide covers the setup of **v1.0** of the Google Lead Generator.  
 > Lead source for this version: **Google Maps**.
 
 ---
