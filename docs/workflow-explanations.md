@@ -1,6 +1,6 @@
-# Workflow Explanations — v1.0 (Google Maps Edition)
+# Workflow Explanations - v1.0 (Google Maps Edition)
 
-> Detailed breakdown of every workflow in the **[IL] Google Lead Generator system — v1.0**.  
+> Detailed breakdown of every workflow in the **[IL] Google Lead Generator system - v1.0**.  
 > All lead discovery in this version is based on **Google Maps**.
 
 ---
@@ -101,7 +101,7 @@ Generates a batch of **Google Maps search queries** for a given niche and city u
 - **Comma parsing fails**: If GPT returns newline-separated queries, update the Code node split logic
 
 ### Important Notes
-- Uses **direct HTTP Request** to OpenAI — gives more control over raw response parsing
+- Uses **direct HTTP Request** to OpenAI - gives more control over raw response parsing
 - Built-in deduplication prevents the same query being generated twice
 - Retry on fail enabled for Google Sheets writes (5 second wait between retries)
 
@@ -142,7 +142,7 @@ Scrapes **Google Maps** to discover businesses matching queries from the Query s
 - **Missing website column**: Some businesses have no website — handle nulls in downstream workflows
 
 ### Important Notes
-- This is the **primary lead source for v1.0** — all leads come from Google Maps
+- This is the **primary lead source for v1.0** - all leads come from Google Maps
 - This workflow feeds data that `AgentLeadScrapInformationCompany` depends on
 - Described in the AI Agent as: *"Collects company websites and adds them to an Excel file"*
 
@@ -180,11 +180,11 @@ Takes company websites from the SiteCompany sheet and **scrapes full business in
 
 ### Common Mistakes
 - **Empty website field**: Skip rows with no website URL using an IF node check
-- **Anti-scraping blocks**: Some websites block bots — implement User-Agent rotation or use a proxy
+- **Anti-scraping blocks**: Some websites block bots - implement User-Agent rotation or use a proxy
 - **Email extraction fails**: Not all websites list emails publicly; expect partial fill rate
 
 ### Important Notes
-- This is the most failure-prone step — build error handling and retries
+- This is the most failure-prone step - build error handling and retries
 - Described in AI Agent as: *"Collects information on companies and writes information into an Excel file"*
 
 ### Demo Video
@@ -314,7 +314,6 @@ Sends the generated HTML emails to leads via **Gmail**, using the content from t
 
 ### Important Notes
 - Add a `Wait` node (1-3 second delay) between sends to avoid rate limiting
-- Consider adding unsubscribe logic to comply with CAN-SPAM / GDPR
 - Monitor Gmail sending quota — large lead lists can exhaust daily limits quickly
 
 ### Demo Video
@@ -322,4 +321,4 @@ Sends the generated HTML emails to leads via **Gmail**, using the content from t
 
 ---
 
-> **v1.0 — Google Maps Edition** | Next: v2.0 (LinkedIn), v3.0 (Multi-source)
+> 🗺️ **v1.0 — Google Maps Edition** | Released: Summer 2025 | Future: v2.0 (Smart Bot + PostgreSQL), v3.0 (SaaS)
