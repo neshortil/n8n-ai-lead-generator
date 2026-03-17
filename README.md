@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 n8n Google AI Lead Generator - v1.0
+# 🤖 Google Lead Generator - v1.0
 
 **An AI-powered, fully automated Google Maps lead generation and outreach system built on n8n.**  
 Control everything from Telegram. Speak or type — the AI does the rest.
