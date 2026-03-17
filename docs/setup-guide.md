@@ -1,4 +1,4 @@
-# Setup Guide & Common Pitfalls — v1.0 (Google Maps Edition)
+# Setup Guide & Common Pitfalls - v1.0 (Google Maps Edition)
 
 > This guide covers the setup of **v1.0** of the n8n Google AI Lead Generator.  
 > Lead source for this version: **Google Maps**.
@@ -7,7 +7,7 @@
 
 ## Quick Start (Step by Step)
 
-### Step 1 — Install n8n
+### Step 1 - Install n8n
 
 **Option A: Docker (recommended for self-hosted)**
 ```bash
@@ -29,7 +29,7 @@ Sign up at [app.n8n.cloud](https://app.n8n.cloud) — no installation needed.
 
 ---
 
-### Step 2 — Import Workflows
+### Step 2 - Import Workflows
 
 Import in this exact order to avoid broken workflow references:
 
@@ -50,7 +50,7 @@ How to import:
 
 ---
 
-### Step 3 — Connect Credentials
+### Step 3 - Connect Credentials
 
 Go to **Settings -> Credentials** in n8n and create:
 
@@ -60,19 +60,20 @@ Go to **Settings -> Credentials** in n8n and create:
 | Telegram | `telegramApi` | Bot token from @BotFather |
 | Google Sheets | `googleSheetsOAuth2Api` | Enable Google Sheets API in GCP |
 | Gmail | `gmailOAuth2` | Enable Gmail API in GCP |
+| Google Maps | `googleMapsApi` | Enable Google Maps API in GCP |
 
 **Google Cloud Setup:**
 1. Go to [console.cloud.google.com](https://console.cloud.google.com)
 2. Create a new project or use existing
-3. Enable **Google Sheets API** and **Gmail API**
+3. Enable **Google Sheets API** and **Gmail API**, **Google Maps API**
 4. Create OAuth 2.0 credentials
 5. Add your n8n instance URL as authorized redirect URI
 
 ---
 
-### Step 4 — Prepare Google Sheets
+### Step 4 - Prepare Google Sheets
 
-**Sheet 1 — Query & Company Database**
+**Sheet 1 - Query & Company Database**
 
 Create a Google Sheet with two tabs:
 
@@ -81,7 +82,7 @@ Create a Google Sheet with two tabs:
 | `Queries` (gid=0) | `query` |
 | `SiteCompany` | `name`, `address`, `phone`, `website` |
 
-**Sheet 2 — Leads Database**
+**Sheet 2 - Leads Database**
 
 Create a second Google Sheet with one tab:
 
@@ -97,7 +98,7 @@ After creating both sheets:
 
 ---
 
-### Step 5 — Configure Telegram Bot
+### Step 5 - Configure Telegram Bot
 
 1. Message [@BotFather](https://t.me/BotFather) -> `/newbot`
 2. Name your bot and copy the token
@@ -105,7 +106,7 @@ After creating both sheets:
 4. Activate the main workflow — n8n registers the webhook automatically
 5. Start chatting with your bot
 
-**Optional — Restrict bot to your Telegram ID only:**
+**Optional - Restrict bot to your Telegram ID only:**
 Add an IF node after the Telegram Trigger that checks:
 ```
 {{ $json.message.from.id }} == YOUR_TELEGRAM_USER_ID
@@ -114,7 +115,7 @@ This prevents others from using your bot.
 
 ---
 
-### Step 6 — Update Email Template
+### Step 6 - Update Email Template
 
 In `[IL] AgentLeadMailGenerate`:
 1. Open the `add email and html` node (Edit Fields)
@@ -129,7 +130,7 @@ To get a Brevo template:
 
 ---
 
-### Step 7 — Activate & Run
+### Step 7 - Activate & Run
 
 1. Activate all 6 sub-agent workflows (toggle ON)
 2. Activate `[IL] GOOGLE LEAD GENERATOR` last
@@ -243,4 +244,4 @@ To get a Brevo template:
 
 ---
 
-> **v1.0 — Google Maps Edition** | Next: v2.0 (LinkedIn), v3.0 (Multi-source)
+🗺️ v1.0 — Google Maps Edition | Released: Summer 2025 | Future: v2.0 (Smart Bot + PostgreSQL), v3.0 (SaaS)
