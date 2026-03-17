@@ -1,13 +1,13 @@
 # Architecture Overview - v1.0 (Google Maps Edition)
 
-> This document describes the architecture of **v1.0** of the n8n Google AI Lead Generator.  
+> This document describes the architecture of **v1.0** of the Google Lead Generator.  
 > v1.0 uses **Google Maps** as the primary lead discovery source.
 
 ---
 
 ## System Design
 
-The n8n Google AI Lead Generator v1.0 follows a **hub-and-spoke architecture** where one central AI Agent orchestrator dispatches work to specialized sub-agent workflows.
+The Google Lead Generator v1.0 follows a **hub-and-spoke architecture** where one central AI Agent orchestrator dispatches work to specialized sub-agent workflows.
 
 All lead discovery in v1.0 is powered by **Google Maps scraping** - businesses are found by niche and city, then enriched and contacted automatically.
 
