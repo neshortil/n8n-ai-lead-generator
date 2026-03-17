@@ -1,6 +1,6 @@
 # Workflows - v1.0 (Google Maps Edition)
 
-This folder contains all n8n workflow JSON files for the **n8n Google AI Lead Generator - v1.0**.
+This folder contains all n8n workflow JSON files for the **Google Lead Generator - v1.0**.
 
 > **v1.0** uses **Google Maps** as the primary lead source.  
 > All 7 workflows below are part of the v1.0 Google Maps system.
