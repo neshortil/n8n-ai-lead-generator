@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 n8n Google AI Lead Generator — v1.0
+# 🤖 n8n Google AI Lead Generator - v1.0
 
 **An AI-powered, fully automated Google Maps lead generation and outreach system built on n8n.**  
 Control everything from Telegram. Speak or type — the AI does the rest.
@@ -24,7 +24,7 @@ This is **v1.0** of a production-ready, end-to-end **AI lead generation system**
 
 This version uses **Google Maps** as the primary lead source — the AI scrapes businesses by niche and city, enriches them, and sends automated outreach.
 
-You send a command to a Telegram bot — via text or **voice message** — and the system:
+You send a command to a Telegram bot - via text or **voice message** — and the system:
 
 1. Generates Google Maps search queries using GPT-4
 2. Scrapes business listings from Google Maps
@@ -142,16 +142,17 @@ Or use [n8n Cloud](https://app.n8n.cloud/).
 | Telegram | Bot Token | Trigger + reply nodes |
 | Google Sheets | OAuth2 | All Sheets nodes |
 | Gmail | OAuth2 | AgentSendMail |
+| Google Maps | API Key | AgentLeadAddSiteCompany |
 
 ### 4. Prepare Google Sheets
 
 Create **two** Google Sheets:
 
-**Sheet 1 — Query Database**
+**Sheet 1 - Query Database**
 - Tab 1: `Queries` — columns: `query`
 - Tab 2: `SiteCompany` — columns: `name`, `address`, `website`, `phone`
 
-**Sheet 2 — Leads Database**
+**Sheet 2 - Leads Database**
 - Tab: `Final` — columns: `name`, `email`, `website`, `mail`, `create mail?`, `DM?`, `rownumber`
 
 Update the Google Sheets document IDs in each workflow node.
@@ -171,31 +172,17 @@ Update the Google Sheets document IDs in each workflow node.
 
 ---
 
-## 💬 Telegram Command Examples
+## 🤖 Telegram Bot Commands
 
-```
-# Lead Generation
-collect dentists Kyiv
-collect beauty salons Berlin
-find IT companies Warsaw
+| Command | Description |
+|--------|-------------|
+| `Collect queries for [niche] in [city]` | Generate search queries for a specific business type and location |
+| `Collect company websites` | Find websites based on generated queries |
+| `Scrape company information` | Gather detailed info from company websites |
+| `Generate emails for all leads` | Create draft emails for contacting companies |
+| `Check emails before sending` | Filter duplicates and validate emails |
+| `Send outreach emails` | Send emails to companies on the list |
 
-# Query Management
-generate search queries for restaurants in Prague
-show me current queries
-
-# Scraping
-scrape company websites
-collect company information
-
-# Email Operations
-generate emails for all leads
-check emails before sending
-send outreach emails
-
-# Status Check
-how many leads do we have?
-show leads without emails
-```
 
 > 💡 You can also send **voice messages** — the system transcribes them with OpenAI Whisper automatically.
 
@@ -260,7 +247,7 @@ MIT — free to use, modify, and distribute.
 
 Built with ❤️ using n8n + OpenAI + Google Maps + Google Sheets
 
-**v1.0 — Google Maps Edition — Summer 2025**
+**v1.0 - Google Maps Edition - Summer 2025**
 
 [github.com/neshortil/n8n-google-lead-generator](https://github.com/neshortil/n8n-google-lead-generator)
 
